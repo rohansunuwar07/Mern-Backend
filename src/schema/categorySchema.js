@@ -1,15 +1,13 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-let categorySchemas = new mongoose.Schema({
+export const categorySchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Category name is required"],
     unique: true,
   },
-  product:{
-    type: mongoose.Schema.Types.ObjectId,
-    requied:true
-  }
+  slug: {
+    type: String,
+    lowercase: true,
+  },
 });
-
-export default categorySchemas;

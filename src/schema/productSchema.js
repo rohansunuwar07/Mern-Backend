@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-export let createProductSchema = new mongoose.Schema({
+export let createProductSchemas = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Product name is required"],
@@ -17,9 +17,15 @@ export let createProductSchema = new mongoose.Schema({
     type: String,
     required: [true, "Company is required"],
   },
-  category: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Category',
-    required: [true, "Category is required"]
-  }
+  categories: [
+    {
+      // Ensure this matches the Category schema field
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
+      required: [true, "Category is required"],
+    },
+  ],
 });
+
+
+

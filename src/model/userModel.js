@@ -4,9 +4,9 @@ import { createTeacherSchema } from "../schema/teacherSchema.js";
 import { createBookSchema } from "../schema/booksSchema.js";
 import createBikeSchema from "../schema/bikeSchema.js";
 import { createUserInfoSchema } from "../schema/webUserSchema.js";
-;
-import categorySchemas from "../schema/categorySchema.js";
-import { createProductSchema } from "../schema/productSchema.js";
+import { createProductSchemas } from "../schema/productSchema.js"
+import { categorySchema } from "../schema/categorySchema.js";
+
 
 
 
@@ -16,6 +16,7 @@ export const user = mongoose.model("user", createUserSchema);
 
 export let teacher = mongoose.model("teacher", createTeacherSchema);
 
+export let Product = mongoose.model("Product", createProductSchemas)
 
 
 
@@ -26,6 +27,4 @@ export const bike = mongoose.model("bike", createBikeSchema);
 
 export let webUser = mongoose.model("webUser", createUserInfoSchema)
 
-export let category = mongoose.model('category', categorySchemas);
-
-export let products = mongoose.model('products', createProductSchema)
+export let Category = mongoose.model("Category",categorySchema)

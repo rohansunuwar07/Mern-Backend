@@ -1,12 +1,9 @@
 import { Router } from "express";
-import { createProductController, deleteSpecificProduct, productCategoryControllorsss, readAllProduct, readSpecificProduct, updateSpecificProduct } from "../controller/productController.js";
+import { createProductAndAddToCategory, deleteSpecificProduct, readAllProduct, readSpecificProduct, updateSpecificProduct } from "../controller/productController.js";
 
 let productRouter = Router();
-productRouter.route("/").post(createProductController);
+productRouter.route("/").post(createProductAndAddToCategory);
 productRouter.route("/").get(readAllProduct);
-
-productRouter.route("/:id").get(productCategoryControllorsss)
-
 
 productRouter.route("/:id").get(readSpecificProduct)
 
