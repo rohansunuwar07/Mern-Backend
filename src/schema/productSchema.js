@@ -5,6 +5,10 @@ export let createProductSchemas = new mongoose.Schema({
     type: String,
     required: [true, "Product name is required"],
   },
+  slug: {
+    type: String,
+    required: true,
+  },
   quantity: {
     type: Number,
     required: [true, "Quantity is required"],
@@ -17,15 +21,13 @@ export let createProductSchemas = new mongoose.Schema({
     type: String,
     required: [true, "Company is required"],
   },
-  categories: [
-    {
-      // Ensure this matches the Category schema field
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Category",
-      required: [true, "Category is required"],
-    },
-  ],
+  categories: {
+    type: mongoose.ObjectId,
+    ref: "Category",
+    required: [true, "Category is required"],
+  },
+  description: {
+    type: String,
+    required: [true, "Description about product is required"],
+  },
 });
-
-
-

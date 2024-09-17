@@ -1,25 +1,10 @@
 import { Product } from "../model/userModel.js";
+import fs from "fs";
+import slugify from "slugify";
 
 export const createProductAndAddToCategory = async (req, res, next) => {
     try {
-      const { name, quantity, price, company, categoryIds } = req.body;
-  
-      // Create the product
-      const product = new Product({
-        name,
-        quantity,
-        price,
-        company,
-        categories: categoryIds // Add the product to the specified categories
-      });
-  
-      await product.save();
-  
-      // Update each category to include the new product
-      await Category.updateMany(
-        { _id: { $in: categoryIds } },
-        { $push: { products: product._id } }
-      );
+        let product = await Product.create(req.body);
   
       res.status(201).json({
         success: true,
@@ -39,7 +24,7 @@ export const createProductAndAddToCategory = async (req, res, next) => {
 export let readAllProduct = async(req, res, next) => {
     try {
         let pdata = await Product.find({});
-        res.json({
+        res.status(201).json({
             success: true,
             message: "Product Displayed Successfully",
             data: pdata,
@@ -105,6 +90,4 @@ export let deleteSpecificProduct = async(req, res, next) => {
         })
     }
 }
-
-
 

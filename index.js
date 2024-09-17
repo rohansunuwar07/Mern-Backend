@@ -9,6 +9,8 @@ import webUserRouter from "./src/routes/webUserRouter.js";
 
 import cors from 'cors';
 import { productCategoryRouter } from "./src/routes/categoryRoutes.js";
+import fileRouter from "./src/routes/fileRouter.js";
+import newProductRouter from "./src/routes/newProductRoutes.js";
 
 const newApp = express();
 const port = 3001;
@@ -32,3 +34,7 @@ newApp.use("/book", bookRouter)
 newApp.use("/webUser", webUserRouter)
 newApp.use("/products", productRouter)
 newApp.use('/categories', productCategoryRouter );
+newApp.use('/file',fileRouter);
+newApp.use('/newProduct',newProductRouter)
+
+
