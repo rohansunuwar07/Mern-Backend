@@ -11,6 +11,7 @@ import cors from 'cors';
 import { productCategoryRouter } from "./src/routes/categoryRoutes.js";
 import fileRouter from "./src/routes/fileRouter.js";
 import newProductRouter from "./src/routes/newProductRoutes.js";
+import studentRouter from "./src/routes/studentRoutes.js";
 
 const newApp = express();
 const port = 3001;
@@ -18,6 +19,7 @@ connectMongoose();
 
 newApp.use(json());
 newApp.use(cors())
+newApp.use(express.static("./public"));
 
 newApp.get('/', (req, res, next) => {
     res.json("Connected Successfully")
@@ -31,6 +33,7 @@ newApp.use("/user", userRouter)
 newApp.use("/bike", bikeRouter)
 newApp.use("/teacher", teacherRouter)
 newApp.use("/book", bookRouter)
+newApp.use("/student",studentRouter)
 newApp.use("/webUser", webUserRouter)
 newApp.use("/products", productRouter)
 newApp.use('/categories', productCategoryRouter );

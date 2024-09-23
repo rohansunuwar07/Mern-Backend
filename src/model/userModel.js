@@ -7,6 +7,7 @@ import { createUserInfoSchema } from "../schema/webUserSchema.js";
 import { createProductSchemas } from "../schema/productSchema.js"
 import { categorySchema } from "../schema/categorySchema.js";
 import { createNewProductSchema } from "../schema/newProductSchema.js";
+import studentSchema from "../schema/studentSchema.js";
 
 
 
@@ -33,4 +34,6 @@ export let Product = mongoose.model("Product", createProductSchemas)
 
 
 
-export let product1 = mongoose.model("product1",createNewProductSchema)
+export let product1 = mongoose.model("product1",createNewProductSchema);
+
+export let student = mongoose.model("student",studentSchema)

@@ -42,6 +42,7 @@ export const readSpecificProductController = async (req, res, next) => {
       message: "Product read successfully",
       data: result,
     });
+    
   } catch (error) {
     res.json({
       success: false,

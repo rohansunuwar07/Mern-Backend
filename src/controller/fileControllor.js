@@ -1,6 +1,6 @@
 export const handleSingleFileController = async (req, res, next) => {
     try {
-      let link = `http://localhost:3001/${req.file.originalname}`;
+      let link = `http://localhost:3001/${req.file.filename}`;
       res.status(200).json({
         success: true,
         message: "File uploaded successfully",
@@ -13,11 +13,21 @@ export const handleSingleFileController = async (req, res, next) => {
       });
     }
   };
+
+
+  // export let displayImage = async (req,res,next) => {
+  //   try {
+  //     let result = await 
+  //   } catch (error) {
+      
+  //   }
+  // }
+  
   
   export const handleMultipleFileController = async (req, res, next) => {
     try {
       let link = req.files.map((value, index) => {
-        return `http://localhost:3001/${value.originalname}`;
+        return `http://localhost:3001/${value.filename}`;
       });
       res.status(200).json({
         success: true,
